@@ -15,4 +15,4 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/', [PageController::class, 'tracks']);
+Route::get('/', [PageController::class, 'tracksCard']);

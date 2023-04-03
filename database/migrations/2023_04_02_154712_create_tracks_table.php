@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('tracks', function (Blueprint $table) {
             $table->id();
             $table->string('title', 50);
-            $table->string('album', 50)->nullable();
-            $table->string('author')->nullable();
-            $table->string('editor')->nullable();
-            $table->smallInteger('lenght')->unsigned();
-            $table->text('poster')->nullable();
+            $table->string('album', 50);
+            $table->string('author');
+            $table->string('editor');
+            $table->string('length');
+            $table->text('poster');
             $table->timestamps();
         });
     }

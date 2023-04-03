@@ -7,9 +7,9 @@ use App\Models\Track;
 
 class PageController extends Controller
 {
-    public function tracks(){
-        $track = Track::all();
+    public function tracksCard(){
+        $tracks = Track::all();
 
-        return view('track', compact('track'));
+        return view('tracks', compact('tracks'));
     }
 }
