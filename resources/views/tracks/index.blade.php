@@ -40,8 +40,9 @@
         <td>{{$track->editor}}</td>
         <td>{{$track->length}}</td>
         <td>
-            <a href="{{route('tracks.show', ['track' => $track])}}">Dettagli</a>
-            <a href="{{-- {{ route('tracks.xxx') }} --}}" type="button" class="btn ">&hearts;</a>
+            <a href="{{route('tracks.show', ['track' => $track])}}">dettagli</a>
+            <span> </span>
+            <a href="{{route('tracks.edit', ['track' => $track])}}">modifica</i></a>
             <a href="{{-- {{ route('tracks.xxx') }} --}}" type="button" class="btn ">&hearts;</a>
             <a href="{{-- {{ route('tracks.xxx') }} --}}" type="button" class="btn ">&hearts;</a>
             <a href="{{-- {{ route('tracks.xxx') }} --}}" type="button" class="btn ">&hearts;</a>

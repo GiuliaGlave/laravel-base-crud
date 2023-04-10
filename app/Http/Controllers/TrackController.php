@@ -43,6 +43,11 @@ class TrackController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+        ]);
+        
         $data = $request->all();
 
       /*   $track = new Track;           
@@ -79,9 +84,9 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Track $track)
     {
-        //
+        return view('tracks.edit', compact('track'));
     }
 
     /**
@@ -91,9 +96,43 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Track $track)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:50',
+            'album' => 'nullable|string|max:50',
+            'author' => 'required|string|max:50',
+            'editor' => 'nullable|string|max:50',
+            'length' => 'nullable|date_format:i:s',
+            'poster' => 'nullable|string'
+        ], [
+            'title.required' => 'Inserire il titolo',
+            'title.string' => 'Il titolo deve essere una stringa',
+            'title.max' => 'Il titolo può avere al massimo 50 caratteri',
+
+            'album.string' => 'L\' album deve essere una stringa',
+            'album.max' => 'L\' album può avere al massimo 50 caratteri',
+
+            'author.required' => 'Inserire l\'autore',
+            'author.string' => 'L\' autore deve essere una stringa',
+            'author.max' => 'L\' autore può avere al massimo 50 caratteri',
+
+            'editor.string' => 'L\' editore deve essere una stringa',
+            'editor.max' => 'L\' editore può avere al massimo 50 caratteri',
+
+            'length.date_format' => 'Il formato della durata deve essere di tipo time (00:00)',
+
+            'poster.string' => 'L\' immagine di copertina deve essere una stringa'
+        ]);
+
+
+        $data = $request->all();
+
+        $track->update($data);
+
+        
+
+        return redirect()->route('tracks.show', ['track' => $track->id]);
     }
 
     /**

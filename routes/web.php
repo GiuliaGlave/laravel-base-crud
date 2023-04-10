@@ -18,9 +18,10 @@ use App\Http\Controllers\TrackController;
 
 /* Route::get('/', [PageController::class, 'tracksCard'])->name('brani'); */
 
-Route::get('tracks', [TrackController::class, 'index'])->name('tracks.index');
+/* Route::get('tracks', [TrackController::class, 'index'])->name('tracks.index');
 Route::get('/', [TrackController::class, 'show'])->name('tracks.show');
 Route::get('/', [TrackController::class, 'create'])->name('tracks.create');
 Route::post('/', [TrackController::class, 'store'])->name('tracks.store');
+Route::get('/', [PageController::class, 'edit'])->name('tracks.edit'); */
 
 Route::resource('tracks', TrackController::class);
