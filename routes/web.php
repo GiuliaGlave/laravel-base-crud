@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TrackController;
 
 
 /*
@@ -15,4 +16,6 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/', [PageController::class, 'tracksCard']);
+/* Route::get('/', [PageController::class, 'tracksCard'])->name('brani'); */
+Route::get('/', [TrackController::class, 'index'])->name('backoffice');
+Route::resource('tracks', TrackController::class);
