@@ -12,9 +12,16 @@ class TrackController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-      public function index(){
+      public function index(Request $request){
         $tracks = Track::limit(20)->get();
 
+        if($request->has('term')){
+            $term = $request->get('term');
+            $tracks = Track::where('title', 'LIKE', "%$term%")->paginate(20)->withQueryString();
+        } else {
+            $tracks = Track::paginate(20);
+        }
+        
         return view('tracks.index', compact('tracks'));
     }
 
@@ -45,9 +52,9 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($track)
+    public function show(Track $track)
     {
-       dd($track);
+       return view('tracks.show', compact('track'));
     }
 
     /**

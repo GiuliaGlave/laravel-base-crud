@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{-- {{ route('brani')}} --}}">@yield('page-name')</a>
+          <a class="nav-link active" aria-current="page" href="{{-- {{ route('brani')}} --}}">Brani</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Playlist</a>

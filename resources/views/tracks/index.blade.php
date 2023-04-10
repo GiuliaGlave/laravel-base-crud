@@ -8,6 +8,12 @@
 <h1>lista brani</h1>
 
 <section>
+
+    <form class="d-flex my-4" role="search">
+        <input class="form-control me-2" type="search" name="term" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+
     <table class="table table-striped">
     <thead>
         <tr>
@@ -29,7 +35,7 @@
         <td>{{$track->author}}</td>
         <td>{{$track->editor}}</td>
         <td>{{$track->length}}</td>
-        <td><a href="{{route('tracks.show', ['track' => $track])}}">link</a></td>
+        <td><a href="{{route('tracks.show', ['track' => $track])}}">Dettagli</a></td>
         </tr> 
         @endforeach
     </tbody>
